@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <link rel="stylesheet" href="/a.css">
+</head>
+<body>
+    <div th:replace="fragments/header::html-header"></div>
+    <table th:border="1" th:style="${'border-collapse:collapse'}">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+        </tr>
+        <tr th:each="post : ${posts}">
+            <td
+                th:width="40px"
+                th:align="center"
+                th:text="${post.index}"></td>
+            <td th:width="400px">
+                <a th:text="${post.title}" th:href="@{/post(postid=${post.index})}"></a></td>
+            <td
+                th:width="150px"
+                th:align="center"
+                th:text="${post.author}"></td>
+        </tr>
+    </table>
+    <button onclick="location.href='/addpost'">글 작성</button>
+</body>
+</html>

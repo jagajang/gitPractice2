@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="fragments/header::html-header"></div>
+    <h2 th:text="${post.title}"></h2>
+    <p th:text="${post.author}"></p>
+    <p th:text="${post.text}"></p>
+    <button th:onclick="'location.href=\'/board\''" th:text="메뉴"></button>
+</body>
+</html>
